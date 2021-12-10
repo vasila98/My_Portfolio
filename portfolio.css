@@ -101,14 +101,38 @@ body {
     display: flex;
 }
 
-#about {
-    width: 350px;
-    height: 450px;
+#about .container .about-section img {
+    width: 100%;
+    height: 100%;
 }
 
-#about .container {
-    margin-left: 201px;
-    margin-top: 70px;
+#about .container .about-section {
+    display: flex;
+}
+
+#about .container .skill-item .icon-html i {
+    font-size: 82px;
+    color: aquamarine;
+}
+
+#about .container .skill-item .icon-css i {
+    font-size: 76px;
+    color: orange;
+}
+
+#about .container .skill-item .icon-js i {
+    font-size: 81px;
+    color: royalblue;
+}
+
+#about .container .skill-item .icon-python i {
+    font-size: 82px;
+    color: #e3dcf5;
+}
+
+#about .container .skill-item .icon-sql i {
+    font-size: 70px;
+    color: aqua;
 }
 
 #portfolio .container .row-1 {
