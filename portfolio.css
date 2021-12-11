@@ -183,3 +183,34 @@ button {
     height: 313px;
     object-fit: cover;
 }
+
+#testimonial .container .name .col-12 {
+    font-size: 72px;
+    font-family: -webkit-pictograph;
+}
+
+#testimonial .container .client {
+    margin-top: 259px;
+}
+
+#testimonial .container .client .icon i {
+    font-size: 100px;
+    color: darkgray;
+}
+
+#testimonial .container .client .text h3 {
+    font-size: 19px;
+    font-family: cursive;
+    color: burlywood;
+}
+
+#testimonial .container .client .name h1 {
+    font-size: 38px;
+    font-family: cursive;
+    color: darkgrey;
+    margin-left: 250px;
+}
+
+#testimonial .container .client .img img {
+    width: 441px;
+}
