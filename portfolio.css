@@ -215,3 +215,28 @@ button {
 #testimonial .container .client .img img {
     width: 441px;
 }
+
+.w-100 {
+    width: 100%;
+}
+
+.form-input form .name,
+.form-input form .email,
+.form-input form .mesaj {
+    margin-bottom: 15px;
+    margin-right: 35px;
+}
+
+.form-input form .name input,
+.form-input form .email input,
+.form-input form .mesaj textarea {
+    box-sizing: border-box;
+    padding: 12px;
+    background: none;
+    color: white;
+}
+
+footer {
+    background: #111;
+    ;
+}
