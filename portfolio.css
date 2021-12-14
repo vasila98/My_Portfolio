@@ -110,6 +110,11 @@ body {
     display: flex;
 }
 
+#about .container .skill-item .col-4 {
+    width: 375px;
+    height: 375px;
+}
+
 #about .container .skill-item .icon-html i {
     font-size: 82px;
     color: aquamarine;
