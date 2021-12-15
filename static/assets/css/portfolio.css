@@ -1,0 +1,253 @@
+body {
+    background-color: black;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    box-sizing: border-box;
+    color: #fff;
+    position: relative;
+    z-index: -2;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.intro {
+    display: flex;
+    justify-content: end;
+}
+
+.position-center {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.intro img {
+    width: 1050px;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.rightpart {
+    width: 100%;
+    height: 100%;
+    float: left;
+    padding-left: 33%;
+}
+
+.header {
+    position: relative;
+}
+
+.navbar-logo {
+    padding-left: 100px;
+    color: white;
+}
+
+.nav ul {
+    display: flex;
+    justify-content: center;
+}
+
+.nav ul li {
+    margin: 0 50px;
+    list-style: none;
+    color: white;
+    font-size: x-large;
+    z-index: 2;
+}
+
+.nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.header-content span {
+    font-size: 26px;
+}
+
+.header-content {
+    font-size: 60px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 70px;
+    color: azure;
+    margin: -5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 600px;
+    padding-left: 100px;
+}
+
+.header-content h1 {
+    -webkit-text-stroke: 1px #fff;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(255, 255, 255);
+    color: transparent;
+}
+
+.header .container .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.d-flex {
+    display: flex;
+}
+
+#about .container .about-section img {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 63px;
+    margin-top: 104px;
+}
+
+#about .container .about-section .col-8 {
+    margin-left: 88px;
+}
+
+#about .container .about-section {
+    display: flex;
+}
+
+#about .container .skill-item .col-4 {
+    width: 375px;
+    height: 375px;
+}
+
+#about .container .skill-item .icon-html i {
+    font-size: 82px;
+    color: aquamarine;
+}
+
+#about .container .skill-item .icon-css i {
+    font-size: 76px;
+    color: orange;
+}
+
+#about .container .skill-item .icon-js i {
+    font-size: 81px;
+    color: royalblue;
+}
+
+#about .container .skill-item .icon-python i {
+    font-size: 82px;
+    color: #e3dcf5;
+}
+
+#about .container .skill-item .icon-sql i {
+    font-size: 70px;
+    color: aqua;
+}
+
+#portfolio .container .row-1 {
+    text-align: center;
+}
+
+#portfolio .container .row-1 .col-12 {
+    font-size: 50px;
+    margin-bottom: 44px;
+    font-family: 'Pacifico', cursive;
+}
+
+#portfolio {
+    margin-top: 140px;
+}
+
+#about .container .row .col-8 .name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 50px;
+}
+
+#about .container .row .col-8 .text {
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+button {
+    background-color: aquamarine;
+    border: none;
+    padding: 13px 50px;
+}
+
+#portfolio .container .row-2 {
+    display: flex;
+}
+
+#portfolio .container .row-3 {
+    display: flex;
+    margin-top: 112px;
+}
+
+.work-item {
+    margin-left: 30px;
+}
+
+.work-item img {
+    width: 100%;
+    height: 313px;
+    object-fit: cover;
+}
+
+#testimonial .container .name .col-12 {
+    font-size: 72px;
+    font-family: -webkit-pictograph;
+    margin-top: 140px;
+}
+
+#testimonial .container .client {
+    margin-top: 259px;
+}
+
+#testimonial .container .client .icon i {
+    font-size: 100px;
+    color: darkgray;
+}
+
+#testimonial .container .client .text h3 {
+    font-size: 19px;
+    font-family: cursive;
+    color: burlywood;
+}
+
+#testimonial .container .client .name h1 {
+    font-size: 38px;
+    font-family: cursive;
+    color: darkgrey;
+    margin-left: 250px;
+}
+
+#testimonial .container .client .img img {
+    width: 441px;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.form-input form .name,
+.form-input form .email,
+.form-input form .mesaj {
+    margin-bottom: 15px;
+    margin-right: 35px;
+}
+
+.form-input form .name input,
+.form-input form .email input,
+.form-input form .mesaj textarea {
+    box-sizing: border-box;
+    padding: 12px;
+    background: none;
+    color: white;
+}
+
+footer {
+    background: #111;
+    ;
+}
