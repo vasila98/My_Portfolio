@@ -1,0 +1,12 @@
+{% extends "admin/base.html" %} {% block content %}
+<h1>Profile</h1>
+
+<form action="/admin" method="POST">
+
+    <input type="text" name="profile_name">
+    <input type="text" name="about">
+    <input type="file" name="profile_img">
+
+</form>
+
+</html> {% endblock %}
