@@ -1,3 +1,43 @@
 {% extends "admin/base.html" %} {% block content %}
-<h1>Portfolio</h1>
+<div class="form-item w-100 d-flex align-items-center">
+    <div class="container">
+        <h1 class="pt-35">Works</h1>
+        <form action="/admin/portfolio" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label class="mt-5">Name</label>
+                <input type="text" name="work_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+            </div>
+
+            <div class="form-group mt-3">
+                <input type="file" name="work_img" class="form-control" id="exampleInputPassword1" required>
+            </div>
+            <div class="submit_button">
+                <button type="submi mt-5">Submit</button>
+            </div>
+        </form>
+        <div class="table" style="margin-bottom: 50px;">
+            <table class="table rounded">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for wrk in works%}
+                    <tr>
+                        <td>{{wrk.id}}</td>
+                        <td>{{wrk.work_name}}</td>
+
+                        <td>
+                            <a href="/workDelete/{{wrk.id}}">Delete</a>
+                        </td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 {% endblock %}

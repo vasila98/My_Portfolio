@@ -1,16 +1,53 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
+
+from run import app, db
 
 
-from run import app
+import os
 
 @app.route("/admin",methods=["GET","POST"])
 def admin():
     from models import Profile
+    from werkzeug.utils import secure_filename
+    prof = Profile.query.all()
+    if request.method=='POST':
+        file = request.files['profile_img']
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        prf=Profile(
+            profile_name=request.form["profile_name"],
+            about=request.form["about"],
+            profile_img = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        )
+        db.session.add(prf)
+        db.session.commit()
+        return redirect("/")
+    return render_template('admin/profile.html', prof=prof)
+
+
+@app.route("/profDelete/<int:id>", methods=["GET","POST"])
+def about_delete(id):
+    from models import Profile
     from run import db
-    about = Profile.query.all()
+    import os
+    prof = Profile.query.filter_by(id=id).first()
+    
+    filename = prof.profile_img
+    os.unlink(os.path.join(filename))
+    db.session.delete(prof)
+    db.session.commit()
+    return redirect ("/admin")
+
+
+# Admin Skills
+@app.route("/admin/skills",methods=["GET","POST"])
+def skills():
+    from models import Skills
+    from run import db
+    skills = Skills.query.all()
     if request.method=="POST":
-        profile_name = request.form["profile_name"]
-        profile_name = request.form["skills_content"]
+        skills_title = request.form["skills_title"]
+        skills_content = request.form["skills_content"]
         skills_class = request.form["skills_class"]
         skill = Skills(
             skills_title = skills_title,
@@ -21,6 +58,50 @@ def admin():
         db.session.commit()
         return redirect("/")
     return render_template("admin/skills.html", skills=skills)
+
+@app.route("/skillDelete/<int:id>", methods=["GET","POST"])
+def skill_delete(id):
+    from models import Skills
+    from run import db
+    skills = Skills.query.filter_by(id=id).first()
+    db.session.delete(skills)
+    db.session.commit()
+    return redirect ("/admin/skills")
+
+
+@app.route("/admin/portfolio",methods=["GET","POST"])
+def Works():
+    from models import Works
+    from run import db
+    from werkzeug.utils import secure_filename
+    import os
+    works=Works.query.all()
+    if request.method=="POST":
+        file = request.files['work_img']
+        filename= secure_filename(file.filename)
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        work=Works(
+            work_img= os.path.join(app.config['UPLOAD_FOLDER'], filename),
+            work_name=request.form["work_name"]
+        )
+        db.session.add(work)
+        db.session.commit()
+        return redirect("/")
+    return render_template('admin/portfolio.html', works=works) 
+
+@app.route("/workDelete/<int:id>", methods=["GET","POST"])
+def works_delete(id):
+    from models import Works
+    from run import db
+    work = Works.query.filter_by(id=id).first()
+    db.session.delete(works)
+    db.session.commit()
+    return redirect ("/admin/portfolio")    
+
+
+
+
+        
 # @app.route('/home')
 # def home():
 #     return render_template("admin/home.html")

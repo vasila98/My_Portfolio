@@ -10,8 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,800;0,900;1,800;1,900&family=Pacifico&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/assets/css/layout.css">
-    <link rel="stylesheet" href="/static/assets/css/portfolio.css">
+    <link rel="stylesheet" href="static/assets/css/layout.css">
+    <link rel="stylesheet" href="static/assets/css/portfolio.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
 </head>
@@ -23,13 +23,13 @@
     <div class="home">
         <div class="container-full">
             <div class="intro">
-                <img src="/static/assets/uploads/image_portfolio.jpeg" alt="">
+                <img src="/static/image/portfolio_img.jpeg" alt="">
             </div>
             <div>
                 <div class="row position-center">
                     <div class="col-4" style="z-index: 2;">
                         <div class="navbar-logo">
-                            <img src="/static/assets/uploads/logo.png" alt="">
+                            <img src="static/uploads/logo.png" alt="">
                         </div>
                     </div>
                     <div class="nav" style="z-index: 2;">
@@ -62,59 +62,29 @@
             <div class="container">
                 <div class="row about-section">
                     <div class="col-6">
-                        <img src="/static/assets/uploads/img.jpeg" alt="">
+                        <img src="{{prof.profile_img}}" alt="">
                     </div>
+
                     <div class="col-8">
-                        <div class="name">Vasila Hasanova</div><br><br>
-                        <div class="text"> My name is Vasila Hasanova. I am a Web Developer, and I'm very passionate and dedicated to my work </div><br><br>
+                        <div class="name">{{prof.profile_name}}</div><br><br>
+                        <div class="text"> {{prof.about}} </div><br><br>
                         <div class="button">
                             <button>Learn Me</button>
                         </div>
                     </div>
                 </div>
                 <div class="row skill-item">
+                    {% for _skills in skills %}
                     <div class="col-4">
                         <div class="icon-html">
-                            <i class="fab fa-html5"></i>
+                            <i class="{{_skills.skills_class}}"></i>
                         </div>
                         <div class="html-text">
-                            <h1>Html</h1>
-                            <p>Brauzerin oxuya biləcəyi hər hansı sənədi və ya səhifəni yaratmaq üçün xüsusi hipermətn dilidir. HTML internetin fundamental baza texnologiyasıdır və veb-səhifənin növünü, funksiyasını təyin edən diskriptorlar əsasında yaradılmış
-                                dildir.
-                            </p>
+                            <h1>{{_skills.skills_title}}</h1>
+                            <p>{{_skills.skills_content}}</p>
                         </div>
                     </div>
-                    <div class="col-4">
-                        <div class="icon-css">
-                            <i class="fab fa-css3"></i>
-                        </div>
-                        <div class="css-text">
-                            <h1>Css</h1>
-                            <p>Sənədin xarici görünüşünün, işarələmə dilinin istifadəsi ilə yazılmış, formal təsvir dili. Adətən HTML və XHTML işarələmə dillərində yazılmış veb-səhifələrin təsviri və tərtibatı üçün istifadə edilir, lakin istənilən digər
-                                XML sənədlərə, məsələn, SVG və ya XUL-a da tətbiq edilə bilər.</p>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="icon-js">
-                            <i class="fab fa-js"></i>
-                        </div>
-                        <div class="js-text">
-                            <h1>Js</h1>
-                            <p>JavaScript – internet səhifələrin yaradılmasında geniş istifadə olunan proqramlaşdırma dilidir. JavaScript müxtəlif dilllərdən ilhamlanaraq yaradılmışdır. 1995-ci ilə Brendan Eyx tərəfindən yazılmışdır. JavaScript Obyekt Yönümlü
-                                Proqramlaşdırma (OYP) dilidir. Obyektə Yönümlü Proqramlaşdırma mövzusu kifayət qədər mürəkkəb proqramlaşdırmadır.</p>
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="icon-python">
-                            <i class="fab fa-python"></i>
-                        </div>
-                        <div class="py-text">
-                            <h1>Python</h1>
-                            <p>Python dili - interpretasiya olunan, yüksək səviyyəli və ümumi-məqsədli proqramlaşdırma dilidir. 1991-ci ildə Guido van Rossum tərəfindən yaradılmışdır. Python dilinin dizayn fəlsəfəsi boşluqlardan istifadə edərək kod oxunaqlılığını
-                                vurğulayır. Bu dilin məqsədi onun dil quruluşu və obyekt-yönümlülüyü ilə proqramçılara xırda və iri həcimli layihələrdə aydın, məntiqli kod yazmağa kömək etməkdir.</p>
-                        </div>
-                    </div>
-
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -126,19 +96,19 @@
                 </div>
                 <div class="row-2">
                     <div class="work-item col-4">
-                        <img src="/static/assets/uploads/cherry.jpg" alt="">
+                        <img src="static/uploads/cherry.jpg" alt="">
                         <div class="text1">
                             <h3>Sweet Cherry</h3>
                         </div>
                     </div>
                     <div class="work-item col-4">
-                        <img src="/static/assets/uploads/avocado.jpg" alt="">
+                        <img src="static/uploads/avocado.jpg" alt="">
                         <div class="text2">
                             <h3>Delicious Fruit</h3>
                         </div>
                     </div>
                     <div class="work-item col-4">
-                        <img src="/static/assets/uploads/blue_lemon.jpg" alt="">
+                        <img src="static/uploads/blue_lemon.jpg" alt="">
                         <div class="text3">
                             <h3>Blue Lemon</h3>
                         </div>
@@ -147,19 +117,19 @@
                 </div>
                 <div class="row-3">
                     <div class="work-item col-4">
-                        <img src="/static/assets/uploads/yellow_phone.jpg" alt="">
+                        <img src="static/uploads/yellow_phone.jpg" alt="">
                         <div class="text1">
                             <h3>Yellow Phone</h3>
                         </div>
                     </div>
                     <div class="work-item col-4">
-                        <img src="/static/assets/uploads/ice_cream.jpg" alt="">
+                        <img src="static/uploads/ice_cream.jpg" alt="">
                         <div class="text2">
                             <h3>Ice Cream</h3>
                         </div>
                     </div>
                     <div class="work-item col-4">
-                        <img src="/static/assets/uploads/good_present.jpg" alt="">
+                        <img src="static/uploads/good_present.jpg" alt="">
                         <div class="text3">
                             <h3>Good Present</h3>
                         </div>
@@ -187,7 +157,7 @@
                         </div>
                     </div>
                     <div class="col-6 img">
-                        <img src="/static/assets/uploads/Samir_m.jpeg" alt="">
+                        <img src="static/uploads/Samir_m.jpeg" alt="">
                     </div>
                 </div>
 
@@ -217,7 +187,7 @@
                         </form>
                     </div>
                     <div class="col-6">
-                        <img class="w-100" src="/static/assets/uploads/map.jpeg" alt="">
+                        <img class="w-100" src="static/uploads/map.jpeg" alt="">
                     </div>
                 </div>
             </div>

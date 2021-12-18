@@ -1,12 +1,47 @@
 {% extends "admin/base.html" %} {% block content %}
-<h1>Profile</h1>
-
-<form action="/admin" method="POST">
-
-    <input type="text" name="profile_name">
-    <input type="text" name="about">
-    <input type="file" name="profile_img">
-
-</form>
-
-</html> {% endblock %}
+<div class="form-item w-100 d-flex align-items-center">
+    <div class="container">
+        <h1 class="pt-35">About</h1>
+        <form action="/admin" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label class="mt-5">Name</label>
+                <input type="text" name="profile_name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+            </div>
+            <div class="form-group mt-3">
+                <label>About</label>
+                <input type="text" name="about" class="form-control" id="exampleInputPassword1" required>
+            </div>
+            <div class="form-group mt-3">
+                <input type="file" name="profile_img" class="form-control" id="exampleInputPassword1" required>
+            </div>
+            <div class="submit_button">
+                <button type="submi mt-5">Submit</button>
+            </div>
+        </form>
+        <div class="table" style="margin-bottom: 50px;">
+            <table class="table rounded">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">About</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for prf in prof%}
+                    <tr>
+                        <td>{{prf.id}}</td>
+                        <td>{{prf.profile_name}}</td>
+                        <td>{{prf.about}}</td>
+                        <td>
+                            <a href="/profDelete/{{prf.id}}">Delete</a>
+                        </td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
