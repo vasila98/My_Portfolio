@@ -18,4 +18,12 @@ class Works(db.Model):
     id=db.Column(db.Integer,primary_key=True)
     work_img=db.Column(db.String(50))
     work_name=db.Column(db.String(100))
+
+class Testimonial(db.Model):
+    id=db.Column(db.Integer,primary_key=True)
+    client_text=db.Column(db.Text)
+    client_name=db.Column(db.String(100))
+    client_img=db.Column(db.String(100))
+
+
     
