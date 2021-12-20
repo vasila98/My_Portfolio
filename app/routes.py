@@ -6,6 +6,10 @@ from run import app
 def index():
     from models import Profile
     from models import Skills
+    from models import Works
+    from models import Testimonial
     prof= Profile.query.get(1)
     skills = Skills.query.all()
-    return render_template("app/index.html",prof=prof,skills=skills)
+    works=Works.query.all()
+    testimonial=Testimonial.query.all()
+    return render_template("app/index.html",prof=prof,skills=skills,works=works,testimonial=testimonial)

@@ -1,0 +1,47 @@
+{% extends "admin/base.html" %} {% block content %}
+<div class="form-item w-100 d-flex align-items-center">
+    <div class="container">
+        <h1 class="pt-35">Testimonial</h1>
+        <form action="/admin/testimonial" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label class="mt-5">Text</label>
+                <input type="text" name="client_text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+            </div>
+            <div class="form-group mt-3">
+                <label>Name</label>
+                <input type="text" name="client_name" class="form-control" id="exampleInputPassword1" required>
+            </div>
+            <div class="form-group mt-3">
+                <input type="file" name="client_img" class="form-control" id="exampleInputPassword1" required>
+            </div>
+            <div class="submit_button">
+                <button type="submi mt-5">Submit</button>
+            </div>
+        </form>
+        <div class="table" style="margin-bottom: 50px;">
+            <table class="table rounded">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Text</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for tst in testimonial%}
+                    <tr>
+                        <td>{{tst.id}}</td>
+                        <td>{{tst.profile_name}}</td>
+                        <td>{{tst.about}}</td>
+                        <td>
+                            <a href="/tstDelete/{{tst.id}}">Delete</a>
+                        </td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

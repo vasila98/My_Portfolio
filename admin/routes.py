@@ -99,6 +99,40 @@ def works_delete(id):
     return redirect ("/admin/portfolio")    
 
 
+@app.route("/admin/testimonial",methods=["GET","POST"])
+def Testimonial():
+    from models import Testimonial
+    from werkzeug.utils import secure_filename
+    testimonial = Testimonial.query.all()
+    if request.method=='POST':
+        file = request.files['client_img']
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        tst=Testimonial(
+            client_text=request.form["client_text"],
+            client_name=request.form["client_name"],
+            client_img = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        )
+        db.session.add(tst)
+        db.session.commit()
+        return redirect("/")
+    return render_template('admin/profile.html', testimonal=testimonial)
+
+@app.route("/tstDelete/<int:id>", methods=["GET","POST"])
+def Testimonial_delete(id):
+    from models import Testimonial
+    from run import db
+    import os
+    testimonial = Testimonial.query.filter_by(id=id).first()
+    
+    filename = testimonial.client_img
+    os.unlink(os.path.join(filename))
+    db.session.delete(testimonial)
+    db.session.commit()
+    return redirect ("/admin/testimonial")   
+  
+
+
 
 
         
