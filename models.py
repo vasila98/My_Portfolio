@@ -26,4 +26,11 @@ class Testimonial(db.Model):
     client_img=db.Column(db.String(100))
 
 
+def Contact(db.Model):
+
+    id=db.Column(db.Integer,primary_key=True)
+
+
+
+
     

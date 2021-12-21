@@ -1,3 +1,36 @@
 {% extends "admin/base.html" %} {% block content %}
-<h1>Contact</h1>
+<div class="form-item w-100 d-flex align-items-center">
+    <div class="container">
+        <h1 class="pt-35">Works</h1>
+        <form action="/admin/contact" method="POST" enctype="multipart/form-data">
+
+            <div class="submit_button">
+                <button type="submi mt-5">Submit</button>
+            </div>
+        </form>
+        <div class="table" style="margin-bottom: 50px;">
+            <table class="table rounded">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for cnt in contact%}
+                    <tr>
+                        <td>{{cnt.id}}</td>
+
+
+                        <td>
+                            <a href="/cntDelete/{{cnt.id}}">Delete</a>
+                        </td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 {% endblock %}

@@ -116,7 +116,7 @@ def Testimonial():
         db.session.add(tst)
         db.session.commit()
         return redirect("/")
-    return render_template('admin/profile.html', testimonal=testimonial)
+    return render_template('admin/testimonial.html', testimonal=testimonial)
 
 @app.route("/tstDelete/<int:id>", methods=["GET","POST"])
 def Testimonial_delete(id):
