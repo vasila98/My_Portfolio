@@ -6,6 +6,7 @@ class Profile(db.Model):
     profile_img=db.Column(db.String(100))
     profile_name=db.Column(db.String(100))
     about=db.Column(db.Text)
+    test=db.Column(db.String(100))
 
     
 class Skills(db.Model):
@@ -26,9 +27,12 @@ class Testimonial(db.Model):
     client_img=db.Column(db.String(100))
 
 
-def Contact(db.Model):
-
+class Contact(db.Model):
     id=db.Column(db.Integer,primary_key=True)
+    user_name=db.Column(db.String(100))
+    user_email=db.Column(db.String(100))
+    user_message=db.Column(db.Text)
+
 
 
 
