@@ -136,19 +136,3 @@ def Testimonial_delete(id):
 
 
         
-# @app.route('/home')
-# def home():
-#     return render_template("admin/home.html")
-
-
-# @app.route('/about')
-# def about():
-#     return render_template("admin/about.html") 
-
-# @app.route('/portfolio')
-# def portfolio():
-#     return render_template("admin/portfolio.html")
-
-# @app.route('/contact')
-# def contact():
-#     return render_template("admin/contact.html")           
